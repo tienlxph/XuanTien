@@ -39,14 +39,14 @@ public class capNhapTrang {
                     phieuGiamGiaRepo.save(voucher);
                 }
             }
-            for (PhieuGiamGia voucher1 : vouchers) {
-            LocalDate ngayKetThuc = LocalDate.parse(voucher1.getNgayKetThuc(), formatter);
-            if (voucher1.getTrangThai().equals(TrangThai.KHÔNGHOẠTĐỘNG) && ngayKetThuc.isEqual(now)) {
-                voucher1.setTrangThai(TrangThai.HOẠTĐỘNG);
-                phieuGiamGiaRepo.save(voucher1);
-            }
+//            for (PhieuGiamGia voucher1 : vouchers) {
+//            LocalDate ngayKetThuc = LocalDate.parse(voucher1.getNgayKetThuc(), formatter);
+//            if (voucher1.getTrangThai().equals(TrangThai.KHÔNGHOẠTĐỘNG) && ngayKetThuc.isEqual(now)) {
+//                voucher1.setTrangThai(TrangThai.HOẠTĐỘNG);
+//                phieuGiamGiaRepo.save(voucher1);
+//            }
         }
-        }
+//        }
 }
 
 

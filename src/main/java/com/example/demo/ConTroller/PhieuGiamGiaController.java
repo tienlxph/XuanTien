@@ -5,13 +5,11 @@ import com.example.demo.Entity.PhieuGiamGia;
 import com.example.demo.Repo.NhanVienRepo;
 import com.example.demo.Repo.PhieuGiamGiaRepo;
 import com.example.demo.enums.TrangThai;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -24,10 +22,22 @@ import java.util.UUID;
 @CrossOrigin("*")
 
 public class PhieuGiamGiaController {
+
+//    private final JavaMailSender emailSender;
+//    public PhieuGiamGiaController(JavaMailSender emailSender) {
+//        this.emailSender = emailSender;
+//    }
+//    @Autowired
+//public PhieuGiamGiaController(JavaMailSender emailSender) {
+//    this.emailSender = emailSender;
+//}
     @Autowired
     PhieuGiamGiaRepo phieuGiamGiaRepo;
     @Autowired
     NhanVienRepo nhanVienRepo;
+
+
+
     @ModelAttribute("nhanList")
     public List<NhanVien> getCategoryList(){
         return  nhanVienRepo.findAll();
@@ -39,6 +49,14 @@ public class PhieuGiamGiaController {
 //        model.addAttribute("list", pgg);
 //        return "phieu-giam-gia/hien-thi";
 //    }
+//public void sendPasswordEmail(String to, String maGiamGia) {
+//    SimpleMailMessage message = new SimpleMailMessage();
+//    message.setTo(to);
+//    message.setSubject("Tài Khoản Và Mật Khẩu");
+//    message.setText("Tài Khoản: " + to + "\nMật Khẩu: " + maGiamGia);
+//
+//    emailSender.send(message);
+//}
 @RequestMapping(value = "/phieu-giam-gia/hien-thi", method = RequestMethod.GET)
 public ResponseEntity<?> phieugiamgia() throws IOException {
     return ResponseEntity.ok(phieuGiamGiaRepo.findAll());
@@ -56,6 +74,7 @@ public ResponseEntity<?> phieugiamgia() throws IOException {
         }
         phieuGiamGia.setMa("GG"+ randomPart.toString());
         phieuGiamGia.setTrangThai(TrangThai.HOẠTĐỘNG);
+//        sendPasswordEmail("tienle3203@gmail.com", randomPart.toString());
         return  phieuGiamGiaRepo.save(phieuGiamGia);
     }
     // hàm này sẽ được chạy mỗi khi đến giờ hẹn trước
