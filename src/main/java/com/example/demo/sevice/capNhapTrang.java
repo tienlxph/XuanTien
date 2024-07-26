@@ -1,5 +1,6 @@
 package com.example.demo.sevice;
 
+
 import com.example.demo.Entity.PhieuGiamGia;
 import com.example.demo.Repo.PhieuGiamGiaRepo;
 import com.example.demo.enums.TrangThai;
@@ -8,7 +9,6 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
@@ -18,7 +18,7 @@ public class capNhapTrang {
     @Autowired
     PhieuGiamGiaRepo phieuGiamGiaRepo;
        private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    @Scheduled(cron = "0 03 20 * * *")
+    @Scheduled(cron = "0 04 17 * * *")
 
     public void DoiTrangThai(){
 
@@ -33,18 +33,13 @@ public class capNhapTrang {
             List<PhieuGiamGia> vouchers = phieuGiamGiaRepo.findAll();
 
             for (PhieuGiamGia voucher : vouchers) {
-                LocalDate ngayKetThuc = LocalDate.parse(voucher.getNgayKetThuc(), formatter);
-                if (voucher.getTrangThai().equals(TrangThai.HOẠTĐỘNG) && ngayKetThuc.isEqual(now)) {
-                    voucher.setTrangThai(TrangThai.KHÔNGHOẠTĐỘNG);
+                LocalDate ngayKetThuc = LocalDate.parse(voucher.getNgayKetThuc().toString(), formatter);
+                if (voucher.getTrangThai().equals(TrangThai.DANG_DIEN_RA) && ngayKetThuc.isEqual(now)) {
+                    voucher.setTrangThai(TrangThai.DA_KETTHUC);
                     phieuGiamGiaRepo.save(voucher);
                 }
             }
-//            for (PhieuGiamGia voucher1 : vouchers) {
-//            LocalDate ngayKetThuc = LocalDate.parse(voucher1.getNgayKetThuc(), formatter);
-//            if (voucher1.getTrangThai().equals(TrangThai.KHÔNGHOẠTĐỘNG) && ngayKetThuc.isEqual(now)) {
-//                voucher1.setTrangThai(TrangThai.HOẠTĐỘNG);
-//                phieuGiamGiaRepo.save(voucher1);
-//            }
+//
         }
 //        }
 }

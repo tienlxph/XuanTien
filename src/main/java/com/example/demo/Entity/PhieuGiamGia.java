@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
+
+import java.sql.Date;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -41,13 +43,13 @@ public class PhieuGiamGia {
 
 
     @Column(name = "ngay_bat_dau")
-    private String ngayBatDau;
+    private Date ngayBatDau;
 
 
 //    @DateTimeFormat(pattern = "dd/MM/yyyy")
 //    @Temporal(TemporalType.DATE)
     @Column(name = "ngay_ket_thuc")
-    private String ngayKetThuc;
+    private Date ngayKetThuc;
 
 
     @Column(name = "trang_thai")
