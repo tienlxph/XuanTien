@@ -32,7 +32,7 @@ public class PhieuGiamGia {
     @Column(name = "ten")
     private String ten;
     @Column(name = "muc_giam_gia")
-    private Integer mucGiamGia;
+    private Double mucGiamGia;
     @Column(name = "kieu_giam_gia")
     private KieuGiam kieuGiamGia;
     @Column(name = "so_luong")
@@ -55,10 +55,10 @@ public class PhieuGiamGia {
     @Column(name = "trang_thai")
     private TrangThai trangThai;
     @Column(name = "so_tien_giam_gia_toi_da")
-    private Integer soTienGiamGiaToiDa;
+    private Double soTienGiamGiaToiDa;
 
     @Column(name = "so_tien_ap_dung_toi_thieu")
-    private Integer soTienApDungToiThieu;
+    private Double soTienApDungToiThieu;
 
 
 }

@@ -41,8 +41,8 @@ public class KhachHang {
     private String ngaySinh;
     @Column(name = "anh")
     private String anh;
-    @Column(name = "gioiTinh")
-    private GioiTinh gioiTinh;
+//    @Column(name = "gioiTinh")
+//    private GioiTinh gioiTinh;
     @Column(name = "diaChi")
     private String diaChi;
     @Column(name = "trangThai")

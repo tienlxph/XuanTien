@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface PhieuGiamGiaRepo extends JpaRepository<PhieuGiamGia, UUID> {
@@ -19,4 +20,6 @@ public interface PhieuGiamGiaRepo extends JpaRepository<PhieuGiamGia, UUID> {
     List<PhieuGiamGia> searchByKeywordAndStatus(
             @Param("keyword") String keyword,
             @Param("status") TrangThai status);
+
+    Optional<PhieuGiamGia> findByMa(String ma);
 }

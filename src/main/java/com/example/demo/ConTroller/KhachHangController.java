@@ -75,7 +75,7 @@ public class KhachHangController {
         kh.setEmail(khachHang.getEmail());
         kh.setNgaySinh(khachHang.getNgaySinh());
         kh.setAnh(khachHang.getAnh());
-        kh.setGioiTinh(khachHang.getGioiTinh());
+//        kh.setGioiTinh(khachHang.getGioiTinh());
         kh.setDiaChi(khachHang.getDiaChi());
 
 
